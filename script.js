@@ -91,42 +91,74 @@ const perguntas = [
   }
 ];
 
-
+// Armazena o elemento do HTML de id"quiz" na variável de mesmo nome
 const quiz = document.querySelector('#quiz')
+
+// Armazena o elemento template do HTML na variável de mesmo nome
 const template = document.querySelector('template')
 
+// Cria um novo conjunto vazio para armazenar as respostas corretas
 const corretas = new Set()
+
+// Guarda o número total de perguntas
 const totalDePerguntas = perguntas.length
+
+// Seleciona o elemento HTML com o id 'acertos' e seu filho 'span' e armazena na variável 'mostrarTotal'
 const mostrarTotal = document.querySelector('#acertos span')
+
+// Mostra o tanto de perguntas corretas em relação ao total de perguntas no quiz
 mostrarTotal.textContent = corretas.size + ' de ' + totalDePerguntas
 
-// loop ou laço de repetição
+// Laço de repetição sobre as questões do quiz
 for (const item of perguntas) {
+
+  // Clona o conteúdo do elemento 'template' e armazena na variável 'quizItem'
   const quizItem = template.content.cloneNode(true)
+  
+  // Seleciona o texto do elemento 'h3' dentro de 'quizItem' como a pergunta atual
   quizItem.querySelector('h3').textContent = item.pergunta
 
+  // Laço de repetição sobre as respostas do quiz
   for (let resposta of item.respostas) {
+
+    // Clona o elemento 'dt' dentro de 'quizItem' e coloca na variável 'dt'
     const dt = quizItem.querySelector('dl dt').cloneNode(true)
+
+    // Define o texto do elemento 'span' dentro de 'dt' como a resposta atual
     dt.querySelector('span').textContent = resposta
+
+    // Define o atributo 'name' do 'input' dentro de 'dt', como 'pergunta-' mais o índice da pergunta atual
     dt.querySelector('input').setAttribute('name', 'pergunta-' + perguntas.indexOf(item))
+
+    // Define o valor do 'input' dentro de 'dt' como o índice da resposta atual
     dt.querySelector('input').value = item.respostas.indexOf(resposta)
+
+    // Define o evento 'onchange' do elemento 'input' dentro de 'dt'
     dt.querySelector('input').onchange = (event) => {
+
+    // Verifica se a resposta selecionada é correta
       const estaCorreta = event.target.value == item.correta
 
+      // Remove a pergunta atual do conjunto 'corretas' se já estiver presente
       corretas.delete(item)
+
+      // Se a resposta estiver correta, adiciona a pergunta atual ao conjunto 'corretas'
       if (estaCorreta) {
         corretas.add(item)
       }
 
+      // Atualiza o texto do elemento 'mostrarTotal' com o número de respostas corretas 
       mostrarTotal.textContent = corretas.size + ' de ' + totalDePerguntas
     }
+
+    // Adiciona 'dt' como filho do elemento 'dl' dentro de 'quizItem'
     quizItem.querySelector('dl').appendChild(dt)
   }
 
-
+  // Remove o primeiro elemento 'dt' dentro de 'quizItem' 
   quizItem.querySelector('dl dt').remove()
 
 
-  // coloca a pergunta na tela
+  // Adiciona 'quizItem' como filho do elemento 'quiz'
   quiz.appendChild(quizItem)
 }
