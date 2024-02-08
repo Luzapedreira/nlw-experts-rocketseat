@@ -1,4 +1,100 @@
 const perguntas = [
+  {
+    pergunta: "Quem foi a primeira programadora da história?",
+    respostas: [
+      "Ada Lovelace",
+      "Grace Hopper",
+      "Margaret Hamilton"
+    ],
+    correta: 0
+  },
+  {
+    pergunta: "Qual dessas mulheres é conhecida por ter desenvolvido o primeiro compilador?",
+    respostas: [
+      "Susan Kare",
+      "Carol Shaw",
+      "Grace Hopper"
+    ],
+    correta: 2
+  },
+  {
+    pergunta: "Qual das seguintes mulheres foi pioneira na computação em nuvem?",
+    respostas: [
+      "Meg Whitman",
+      "Sheryl Sandberg",
+      "Ursula Burns"
+    ],
+    correta: 0
+  },
+  {
+    pergunta: "Quem foi a primeira mulher a ganhar o Prêmio Turing?",
+    respostas: [
+      "Barbara Liskov",
+      "Shafi Goldwasser",
+      "Fran Allen"
+    ],
+    correta: 2
+  },
+  {
+    pergunta: "Qual é a CEO da YouTube e uma das mais poderosas mulheres na tecnologia?",
+    respostas: [
+      "Marissa Mayer",
+      "Susan Wojcicki",
+      "Ginni Rometty"
+    ],
+    correta: 1
+  },
+  {
+    pergunta: "Quem é conhecida como a 'mãe do COBOL'?",
+    respostas: [
+      "Barbara Liskov",
+      "Grace Hopper",
+      "Carol Shaw"
+    ],
+    correta: 1
+  },
+  {
+    pergunta: "Qual mulher é conhecida por sua contribuição ao algoritmo de Huffman?",
+    respostas: [
+      "Margaret Hamilton",
+      "Radia Perlman",
+      "Sylvia Wilbur"
+    ],
+    correta: 0
+  },
+  {
+    pergunta: "Quem foi a primeira mulher negra a ganhar um Ph.D. em Ciência da Computação do Instituto de Tecnologia de Massachusetts (MIT)?",
+    respostas: [
+      "Anita Borg",
+      "Mae Jemison",
+      "Valerie Thomas"
+    ],
+    correta: 2
+  },
+  {
+    pergunta: "Qual das seguintes mulheres co-fundou a Electronic Frontier Foundation (EFF)?",
+    respostas: [
+      "Ada Lovelace",
+      "Esther Dyson",
+      "Megan Smith"
+    ],
+    correta: 1
+  },
+  {
+    pergunta: "Quem foi a primeira mulher a servir como CTO (Chief Technology Officer) dos Estados Unidos?",
+    respostas: [
+      "Marissa Mayer",
+      "Megan Smith",
+      "Sheryl Sandberg"
+    ],
+    correta: 1
+  }
+];
+  
+  const quiz = document.querySelector('#quiz')
+  const template = document.querySelector('template')
+  
+  const corretconst perguntas = [
     {
       pergunta: "Qual é a finalidade do comando 'console.log()' em JavaScript?",
       respostas: [
@@ -13,66 +109,7 @@ const perguntas = [
       respostas: [
         "Comparação de valores sem considerar o tipo",
         "Atribuição de valores",
-        "Comparação estrita de valores e tipos"
-      ],
-      correta: 2
-    },
-    {
-      pergunta: "Como se declara uma variável em JavaScript?",
-      respostas: [
-        "let myVar;",
-        "const myVar = 10;",
-        "ambas as opções acima estão corretas"
-      ],
-      correta: 2
-    },
-    {
-      pergunta: "O que é uma função em JavaScript?",
-      respostas: [
-        "Um tipo de dado",
-        "Um bloco de código reutilizável",
-        "Uma variável global"
-      ],
-      correta: 1
-    },
-    {
-      pergunta: "Qual é a diferença entre 'let' e 'const' na declaração de variáveis?",
-      respostas: [
-        "Nenhuma, são sinônimos",
-        "let é usado para valores constantes, const para variáveis",
-        "let permite reatribuição, const cria variáveis imutáveis"
-      ],
-      correta: 2
-    },
-    {
-      pergunta: "O que é o DOM em JavaScript?",
-      respostas: [
-        "Um método de criptografia",
-        "Um modelo de objeto para manipular documentos HTML",
-        "Uma linguagem de programação"
-      ],
-      correta: 1
-    },
-    {
-      pergunta: "Como se realiza uma iteração sobre os elementos de um array em JavaScript?",
-      respostas: [
-        "Usando a estrutura 'if-else'",
-        "Com a declaração 'switch'",
-        "Utilizando loops como 'for' ou 'forEach'"
-      ],
-      correta: 2
-    },
-    {
-      pergunta: "O que é o JSON em JavaScript?",
-      respostas: [
-        "Um método de formatação de texto",
-        "Uma linguagem de estilização",
-        "Um formato de dados leve e intercambiável"
-      ],
-      correta: 2
-    },
-    {
-      pergunta: "Qual é a diferença entre 'null' e 'undefined' em JavaScript?",
+        "Comparação estrita de valores e…pt?",
       respostas: [
         "São iguais, usados de forma intercambiável",
         "'null' representa a ausência de valor, 'undefined' é atribuído explicitamente",
@@ -89,12 +126,7 @@ const perguntas = [
       ],
       correta: 2
     },
-  ];
-  
-  const quiz = document.querySelector('#quiz')
-  const template = document.querySelector('template')
-  
-  const corretas = new Set()
+  ];as = new Set()
   const totalDePerguntas = perguntas.length
   const mostrarTotal = document.querySelector('#acertos span')
   mostrarTotal.textContent = corretas.size + ' de ' + totalDePerguntas
